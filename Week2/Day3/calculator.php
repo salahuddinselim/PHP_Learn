@@ -9,8 +9,8 @@
 
 <body>
     <form action="calculator.php" method="get">
-        First Number : <input type="number" name="num1"><br>
-        Second Number: <input type="number" name="num2"><br>
+        First Number : <input type="number" step="0.1" name="num1"><br>
+        Second Number: <input type="number" step="0.1" name="num2"><br>
         OP : <input type="text" name="op"><br>
         <input type="submit">
     </form>
