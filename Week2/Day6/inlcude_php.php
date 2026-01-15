@@ -8,11 +8,7 @@
 </head>
 
 <body>
-    <?php
-    include "header.html";
-    echo "<h1>Hello baby</h1>";
-    include "footer.html";
-    ?>
+
 </body>
 
 </html>
