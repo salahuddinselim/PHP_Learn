@@ -34,11 +34,18 @@
         {
             echo "Italian chef makes pizza <br>";
         }
+
+        function makeSpecialDish()
+        {
+            echo "The chef makes pasta <br>";
+        }
     }
 
     $italianChef = new ItalianChef();
     $italianChef->makeChicken();
     $italianChef->makePizza();
+    $italianChef->makeSpecialDish();
+    $chef->makeSpecialDish();
     ?>
 </body>
 
