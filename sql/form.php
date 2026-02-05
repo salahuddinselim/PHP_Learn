@@ -1,4 +1,4 @@
-<form action="form.php">
+<form action="form.php" method="get">
     <div>Name: <input type="text" name="name"></div>
     <div>Total Credit current: <input type="number" name="credit"></div>
     <div>
@@ -11,6 +11,26 @@
     <div>Credit: <input type="number" name="credit5"> <input type="number" name="gpa5"></div>
 
     <?php
+    if (isset($_GET['name']) && isset($_GET['credit'])) {
 
+        $name = $_GET['name'];
+        $totalCredit = $_GET['credit'];
+
+        $credits = [];
+        $gpas = [];
+
+        for ($i = 1; $i <= 5; $i++) {
+            if (isset($_GET["credit$i"]) && isset($_GET["gpa$i"])) {
+                $credits[] = $_GET["credit$i"];
+                $gpas[] = $_GET["gpa$i"];
+            }
+        }
+
+        echo "<pre>";
+        print_r($credits);
+        print_r($gpas);
+        echo "</pre>";
+    }
     ?>
+
 </form>
