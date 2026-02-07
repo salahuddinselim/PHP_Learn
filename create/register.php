@@ -13,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$name, $username, $password]);
 
-        echo "✅ Data stored successfully";
+        echo "Data stored successfully";
     } else {
-        echo "❌ All fields are required";
+        echo "All fields are required";
     }
 }
 ?>
