@@ -30,6 +30,12 @@
         print_r($credits);
         print_r($gpas);
         echo "</pre>";
+        $value = 0;
+        $credit = 0;
+        for ($i = 1; $i <= 5; $i++) {
+            $value += ($credits[$i] * $gpas[$i]);
+            $credit += $gpas[$i];
+        }
     }
     ?>
 
