@@ -8,8 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $username = $_POST['username'];
         $password = $_POST['password'];
-
-        // get user by username
         $sql = "SELECT id, username, pass FROM users WHERE username = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$username]);
@@ -17,22 +15,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
-            // verify password
+            // verify password  no need for final
             if (password_verify($password, $user['pass'])) {
 
-                // session set
+                // session set need for the final 
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
 
                 echo "Login successful";
+                header('location:dashboard.php');
             } else {
                 echo "Incorrect password";
             }
         } else {
-            echo "User not found";
+            echo "No user with the username";
         }
     } else {
-        echo "All fields are required";
+        echo "Give input first";
     }
 }
 ?>
