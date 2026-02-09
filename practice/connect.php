@@ -1,15 +1,12 @@
 <?php
-$username = 'root';
+$host = "localhost";
+$dbname = "selim";
+$username = "root";
 $password = "SE171972";
-$host = 'localhost';
-$dbname = 'selim';
 
 try {
-    $pdo = new PDO(
-        "mysql:host=$host,dbname=$dbname;",
-        $username,
-        $password
-    );
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo "There is error in the connection." . $e->getMessage();
+    die("Database connection failed");
 }

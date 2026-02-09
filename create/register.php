@@ -1,24 +1,17 @@
 <?php
 require_once "connect.php";
+if (!empty($_POST['name']) && !empty($_POST['username']) && !empty($_POST['password'])) {
+    $name = $_POST['name'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $sql = "INSERT INTO users (name, username, pass) VALUES (?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$name, $username, $password]);
 
-    if (!empty($_POST['name']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-
-        $name = $_POST['name'];
-        $username = $_POST['username'];
-
-        //no need of this one for final
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-        $sql = "INSERT INTO users (name, username, pass) VALUES (?, ?, ?)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$name, $username, $password]);
-
-        echo "Data stored successfully";
-    } else {
-        echo "All fields are required";
-    }
+    echo "Data stored successfully";
+} else {
+    echo "All fields are required";
 }
 ?>
 
