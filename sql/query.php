@@ -8,3 +8,9 @@ $sql = "create table users(
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 print "New table added in there.";
+
+
+#create database
+#table 2
+#insert data
+#fetch data by join 
