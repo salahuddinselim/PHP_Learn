@@ -1,0 +1,39 @@
+create database Cricket;
+
+use Cricket;
+
+create table player(
+	id int AUTO_INCREMENT PRIMARY KEY,
+    name varchar(30),
+    country varchar(30),
+    club_name varchar(30)
+);
+
+
+use Cricket;
+
+CREATE TABLE club(
+	id int AUTO_INCREMENT PRIMARY KEY,
+    name varchar(30),
+    host_country varchar(30),
+    tournament_name varchar(30)
+);
+
+CREATE TABLE tournament(
+	id int AUTO_INCREMENT PRIMARY KEY,
+    name varchar(30),
+    host_country varchar(30),
+    prize_money int
+);
+
+
+
+use Cricket;
+INSERT INTO player(name,country, club_name) VALUES('a','a1','a2'),
+('b','b1','b2'), ('c','c1','c2'), ('d','d1','d2'), ('e','e1','e2');
+
+INSERT INTO club(name,host_country, tournament_name) VALUES('c1','c1','c1'),
+('c2','c2','c2'), ('c3','c3','c3'), ('c4','c4','c4'), ('c5','c5','c5');
+
+INSERT INTO tournament(name,host_country, prize_money) VALUES('t1','t1','t1'),
+('t2','t2','t2'), ('t3','t3','t3'), ('t4','t4','t4'), ('t5','t5','t5');
