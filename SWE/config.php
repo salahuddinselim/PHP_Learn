@@ -1,12 +1,12 @@
 <?php
 $host = "localhost";
 $username = "root";
-$dbname = "Cricket";
 $password = "";
+$dbname = "Cricket"; // Use the exact database name created in MySQL
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo $e->getMessage();
+    die("Database connection failed: " . $e->getMessage());
 }

@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'config.php';
 
 $player_id = $_POST['player_id'];
 $club_name = $_POST['club_name'];

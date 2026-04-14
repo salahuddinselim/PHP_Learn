@@ -1,13 +1,11 @@
 <?php
-include 'db.php';
-
-$id = $_POST['id'];
+include 'config.php';
 $name = $_POST['name'];
 $country = $_POST['country'];
 
-$sql = "INSERT INTO player (id, name, country) VALUES (?, ?, ?)";
+$sql = "INSERT INTO player ( name, country) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->execute([$id, $name, $country]);
+$stmt->execute([$name, $country]);
 
 echo "Player Added Successfully!";
 echo "<br><a href='index.html'>Back</a>";
